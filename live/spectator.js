@@ -45,7 +45,43 @@
       '#kflChip.live i{background:#34d399;box-shadow:0 0 0 3px #34d39933;animation:kflPulse 2s infinite}',
       '#kflChip.bad i{background:#fb923c}',
       '@keyframes kflPulse{50%{box-shadow:0 0 0 6px #34d39911}}',
-      '#kflFs{position:absolute;right:12px;bottom:10px;z-index:5;padding:6px 11px;border-radius:999px;background:#0b1428e6;border:1px solid #2c4470;color:#cfe3ff;font:700 12px Inter,"Segoe UI",Arial,sans-serif;cursor:pointer}',
+      '#kflActions{position:absolute;right:12px;bottom:10px;z-index:6;display:flex;gap:8px}',
+      '#kflActions button{padding:6px 12px;border-radius:999px;background:#0b1428e6;border:1px solid #2c4470;color:#cfe3ff;font:700 12px Inter,"Segoe UI",Arial,sans-serif;cursor:pointer;white-space:nowrap}',
+      '#kflActions button:hover{background:#16284d}',
+      '#kflSquadBtn{background:linear-gradient(135deg,#2467db,#387eeb)!important;border-color:#6aa8ff!important;color:#fff!important}',
+      // ----- squads panel -----
+      '#kflSquads{position:absolute;top:0;right:0;bottom:0;width:min(460px,100%);z-index:8;display:flex;flex-direction:column;background:#0a1328f7;border-left:1px solid #2c4470;box-shadow:-18px 0 40px #0009;transform:translateX(105%);transition:transform .22s ease;backdrop-filter:blur(6px)}',
+      '#kflSquads.open{transform:none}',
+      '.sq-head{display:flex;align-items:center;gap:10px;padding:14px 16px 10px}',
+      '.sq-head h2{margin:0;font-size:17px;letter-spacing:.03em;flex:1}',
+      '.sq-close{width:34px;height:34px;border-radius:50%;border:1px solid #2c4470;background:#111d3a;color:#e8f2ff;font-size:16px;cursor:pointer}',
+      '.sq-now{margin:0 16px 10px;padding:8px 11px;border-radius:10px;background:#11224a;border:1px solid #2c4a80;font-size:12px;color:#bcd3f2;display:flex;gap:8px;align-items:center;min-width:0}',
+      '.sq-now b{color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sq-now .dot{width:8px;height:8px;border-radius:50%;background:#34d399;flex:none}',
+      '.sq-tabs{display:flex;gap:6px;overflow-x:auto;padding:0 16px 10px;scrollbar-width:thin;flex:none}',
+      '.sq-tab{flex:none;display:flex;align-items:center;gap:6px;padding:6px 10px 6px 7px;border-radius:999px;border:1px solid #2c4470;background:#0f1a34;color:#cfe0f7;font:700 12px Inter,"Segoe UI",Arial,sans-serif;cursor:pointer;white-space:nowrap}',
+      '.sq-tab img{width:20px;height:20px;object-fit:contain}.sq-tab small{color:#8fb0d8;font-weight:600}',
+      '.sq-tab.active{background:linear-gradient(135deg,#2467db,#387eeb);border-color:#7cb4ff;color:#fff}.sq-tab.active small{color:#dceaff}',
+      '.sq-body{flex:1;overflow-y:auto;padding:4px 16px 18px;-webkit-overflow-scrolling:touch}',
+      '.sq-team{display:flex;align-items:center;gap:12px;padding:12px;border-radius:14px;background:linear-gradient(135deg,#17284f,#0f1a35);border:1px solid #2f4a7e;border-left:4px solid var(--tc,#5edbff);margin-bottom:10px}',
+      '.sq-team img.crest{width:52px;height:56px;object-fit:contain;flex:none}',
+      '.sq-team h3{margin:0;font-size:17px;line-height:1.15}.sq-team .cap{font-size:12px;color:#a9c0e0;margin-top:3px}',
+      '.sq-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}',
+      '.sq-stat{padding:9px 10px;border-radius:10px;background:#0f1a34;border:1px solid #23395f}.sq-stat b{display:block;font-size:18px;color:#7ee7ff}.sq-stat span{font-size:10px;letter-spacing:.08em;color:#8fa9cc;font-weight:700}',
+      '.sq-row{display:flex;align-items:center;gap:11px;padding:8px 6px;border-bottom:1px solid #1c2c4d}',
+      '.sq-num{width:20px;font-size:11px;color:#6f8bb3;font-weight:800;text-align:right;flex:none}',
+      '.sq-photo{width:42px;height:42px;border-radius:9px;object-fit:cover;object-position:center 25%;background:#122747;border:1px solid #2f4a7e;flex:none}',
+      '.sq-photo.logo{object-fit:contain;padding:4px;background:#000}',
+      '.sq-info{flex:1;min-width:0}.sq-name{display:flex;align-items:center;min-width:0}.sq-name b{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}.sq-info small{display:block;font-size:11px;color:#94afd3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}',
+      '.sq-price{font-size:15px;font-weight:900;color:#7ee7ff;white-space:nowrap}.sq-price.free{font-size:11px;color:#91f2ba;letter-spacing:.06em;border:1px solid #2e7a59;border-radius:6px;padding:3px 6px}',
+      '.sq-new{flex:none;font-size:9px;font-weight:900;letter-spacing:.08em;color:#071d28;background:#4ce3b2;border-radius:4px;padding:2px 5px;margin-left:6px}',
+      '.sq-empty{padding:26px 10px;text-align:center;color:#8fa9cc;font-size:13px}',
+      '.sq-ov{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:10px;margin-bottom:8px;border-radius:12px;border:1px solid #23395f;border-left:4px solid var(--tc,#5edbff);background:#0f1a34;color:#e8f2ff;cursor:pointer;font:inherit}',
+      '.sq-ov:hover{background:#16284d}.sq-ov img{width:34px;height:36px;object-fit:contain;flex:none}',
+      '.sq-ov .n{flex:1;min-width:0}.sq-ov .n b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sq-ov .n small{font-size:11px;color:#94afd3}',
+      '.sq-ov .m{text-align:right;font-size:11px;color:#94afd3;white-space:nowrap}.sq-ov .m b{display:block;font-size:15px;color:#7ee7ff}',
+      '.sq-bar{display:block;height:4px;border-radius:3px;background:#1c2c4d;margin-top:5px;overflow:hidden}.sq-bar i{display:block;height:100%;background:linear-gradient(90deg,#2467db,#5edbff)}',
+      '@media (max-width:700px),(max-height:520px){#kflSquads{width:100%;border-left:0}}',
+      '#kflSpectator.sq-open #kflRotate{display:none!important}',
       '#kflWaiting{position:absolute;inset:0;display:none;align-items:center;justify-content:center;z-index:4;background:radial-gradient(ellipse at 50% 30%,#1b2c57,#060a16 70%)}',
       '#kflWaiting.show{display:flex}',
       '#kflWaiting .card{max-width:520px;margin:16px;text-align:center;padding:28px 24px;border-radius:18px;border:1px solid #2f4878;background:#0d1832cc}',
@@ -54,7 +90,7 @@
       '#kflWaiting p{margin:0;color:#a9c0e0;font-size:14px;line-height:1.5}',
       '#kflRotate{position:absolute;left:50%;top:10px;transform:translateX(-50%);z-index:5;display:none;padding:7px 12px;border-radius:999px;background:#13306acc;border:1px solid #3d63a8;font-size:12px;font-weight:700;white-space:nowrap}',
       '@media (orientation:portrait) and (max-width:820px){#kflRotate{display:block}}',
-      '@media (max-height:520px){#kflChip,#kflFs{padding:3px 8px;font-size:10px;bottom:4px;opacity:.8}#kflChip{left:4px}#kflFs{right:4px}}'
+      '@media (max-height:520px){#kflChip,#kflActions button{padding:3px 8px;font-size:10px}#kflChip{left:4px;bottom:4px;opacity:.85}#kflActions{right:4px;bottom:4px;gap:5px}}'
     ].join('\n');
     document.head.appendChild(style);
 
@@ -71,20 +107,129 @@
       '<h1>KFL SOUTH · LIVE DRAFT</h1><p id="kflWaitingText">Connecting…</p></div>';
     rotateHint = h('div', { id: 'kflRotate' }, '↻ Rotate your phone for a bigger view');
     root.appendChild(stageBox); root.appendChild(waiting); root.appendChild(chip); root.appendChild(rotateHint);
+    var actions = h('div', { id: 'kflActions' });
+    var sqBtn = h('button', { id: 'kflSquadBtn', type: 'button', 'aria-controls': 'kflSquads', 'aria-expanded': 'false' }, '👥 Squads');
+    sqBtn.addEventListener('click', function () { toggleSquads(); });
+    actions.appendChild(sqBtn);
     if (document.documentElement.requestFullscreen) {
       fsBtn = h('button', { id: 'kflFs', type: 'button' }, '⛶ Full screen');
       fsBtn.addEventListener('click', function () {
         if (document.fullscreenElement) document.exitFullscreen().catch(function () {});
         else document.documentElement.requestFullscreen().catch(function () {});
       });
-      root.appendChild(fsBtn);
+      actions.appendChild(fsBtn);
     }
+    root.appendChild(actions);
+    buildSquads();
     document.body.appendChild(root);
     waitingText = document.getElementById('kflWaitingText');
     window.addEventListener('resize', fit);
     window.addEventListener('orientationchange', function () { setTimeout(fit, 250); });
     fit();
   }
+
+  // ---------- squads panel (spectator-only, independent of the projector view) ----------
+  var sqPanel, sqNow, sqTabs, sqBody, sqOpen = false, sqTeam = 'all';
+
+  function buildSquads() {
+    sqPanel = h('aside', { id: 'kflSquads', role: 'dialog', 'aria-label': 'Team squads', 'aria-hidden': 'true' });
+    sqPanel.innerHTML = '<div class="sq-head"><h2>👥 Team squads</h2><button type="button" class="sq-close" aria-label="Close squads">✕</button></div>' +
+      '<div class="sq-now" id="kflSqNow"></div><div class="sq-tabs" id="kflSqTabs" role="tablist"></div><div class="sq-body" id="kflSqBody"></div>';
+    root.appendChild(sqPanel);
+    sqNow = sqPanel.querySelector('#kflSqNow'); sqTabs = sqPanel.querySelector('#kflSqTabs'); sqBody = sqPanel.querySelector('#kflSqBody');
+    sqPanel.querySelector('.sq-close').addEventListener('click', function () { toggleSquads(false); });
+    sqPanel.addEventListener('click', function (e) {
+      var pick = e.target.closest('[data-sq-team]');
+      if (pick) { sqTeam = pick.getAttribute('data-sq-team'); sqBody.scrollTop = 0; renderSquads(true); }
+    });
+    window.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sqOpen) toggleSquads(false); });
+  }
+
+  function toggleSquads(force) {
+    sqOpen = typeof force === 'boolean' ? force : !sqOpen;
+    sqPanel.classList.toggle('open', sqOpen);
+    sqPanel.setAttribute('aria-hidden', sqOpen ? 'false' : 'true');
+    root.classList.toggle('sq-open', sqOpen);
+    var b = document.getElementById('kflSquadBtn');
+    if (b) { b.setAttribute('aria-expanded', String(sqOpen)); b.textContent = sqOpen ? '✕ Close squads' : '👥 Squads'; }
+    if (sqOpen) renderSquads(true);
+  }
+
+  /* eslint-disable no-undef */
+  function crestImg(tid, cls) {
+    var src = (typeof KFL_TEAM_CRESTS !== 'undefined' && KFL_TEAM_CRESTS[tid]) || '';
+    return src ? '<img class="' + cls + '" alt="" src="' + esc(src) + '">' : '';
+  }
+
+  function teamPlayers(s, tid) {
+    // Signing order: follow the sale history, then any others.
+    var order = {}; (s.history || []).forEach(function (h, i) { if (h.teamId === tid) order[h.playerId] = i; });
+    return s.players.filter(function (p) { return p.teamId === tid; }).sort(function (a, b) {
+      return (order[a.id] === undefined ? 1e9 : order[a.id]) - (order[b.id] === undefined ? 1e9 : order[b.id]);
+    });
+  }
+
+  function renderSquads(tabsToo) {
+    if (!sqOpen || !haveState) {
+      if (sqOpen && !haveState) sqBody.innerHTML = '<div class="sq-empty">Waiting for the live draft…</div>';
+      return;
+    }
+    var s = E.getState(), target = KFL_SQUAD_TARGET || 15;
+    if (sqTeam !== 'all' && !s.teams.some(function (t) { return t.id === sqTeam; })) sqTeam = 'all';
+
+    // What's happening right now
+    var cur = s.players.find(function (p) { return p.id === s.selectedPlayerId; });
+    var top = topBid(s);
+    sqNow.innerHTML = '<span class="dot"></span>' + (cur
+      ? (cur.teamId ? 'Just signed: <b>' + esc(cur.name) + '</b>' : 'On the block: <b>' + esc(cur.name) + '</b>' + (top ? ' · ' + esc(money(top)) : ''))
+      : 'Live draft in progress');
+
+    if (tabsToo || sqTabs.childElementCount !== s.teams.length + 1) {
+      sqTabs.innerHTML = '<button type="button" role="tab" class="sq-tab' + (sqTeam === 'all' ? ' active' : '') + '" data-sq-team="all">All teams</button>' +
+        s.teams.map(function (t) {
+          return '<button type="button" role="tab" class="sq-tab' + (sqTeam === t.id ? ' active' : '') + '" data-sq-team="' + esc(t.id) + '">' +
+            crestImg(t.id, '') + esc(t.name) + ' <small>' + teamPlayers(s, t.id).length + '</small></button>';
+        }).join('');
+      var act = sqTabs.querySelector('.active'); if (act && act.scrollIntoView) act.scrollIntoView({ block: 'nearest', inline: 'center' });
+    } else {
+      s.teams.forEach(function (t) {
+        var sm = sqTabs.querySelector('[data-sq-team="' + t.id + '"] small');
+        if (sm) sm.textContent = teamPlayers(s, t.id).length;
+      });
+    }
+
+    if (sqTeam === 'all') {
+      sqBody.innerHTML = s.teams.map(function (t) {
+        var n = teamPlayers(s, t.id).length, left = teamRemaining(t.id);
+        return '<button type="button" class="sq-ov" style="--tc:' + esc(t.color) + '" data-sq-team="' + esc(t.id) + '">' + crestImg(t.id, '') +
+          '<span class="n"><b>' + esc(t.name) + '</b><small>Captain ' + esc(t.captain) + ' · ' + n + '/' + target + ' players</small>' +
+          '<span class="sq-bar"><i style="width:' + Math.min(100, n / target * 100) + '%"></i></span></span>' +
+          '<span class="m"><b>' + esc(money(left)) + '</b>left</span></button>';
+      }).join('');
+      return;
+    }
+
+    var t = s.teams.find(function (x) { return x.id === sqTeam; });
+    var list = teamPlayers(s, t.id);
+    var spent = list.reduce(function (a, p) { return a + (Number(p.price) || 0); }, 0);
+    var newest = (s.history || []).filter(function (h) { return h.teamId === t.id; }).slice(-1)[0];
+    var html = '<div class="sq-team" style="--tc:' + esc(t.color) + '">' + crestImg(t.id, 'crest') +
+      '<div><h3>' + esc(t.name) + '</h3><div class="cap">Captain ' + esc(t.captain) + '</div></div></div>' +
+      '<div class="sq-stats"><div class="sq-stat"><b>' + list.length + '/' + target + '</b><span>PLAYERS</span></div>' +
+      '<div class="sq-stat"><b>' + esc(money(spent)) + '</b><span>SPENT</span></div>' +
+      '<div class="sq-stat"><b>' + esc(money(teamRemaining(t.id))) + '</b><span>LEFT</span></div></div>';
+    if (!list.length) html += '<div class="sq-empty">No players signed yet.</div>';
+    html += list.map(function (p, i) {
+      var photo = p.photo ? '<img class="sq-photo" loading="lazy" alt="" src="' + esc(p.photo) + '">' : '<img class="sq-photo logo" alt="" src="' + esc(KFL_LOGO) + '">';
+      var isNew = newest && newest.playerId === p.id && i === list.length - 1;
+      var meta = [p.position, p.age ? 'Age ' + p.age : '', p.region].filter(Boolean).join(' · ');
+      var price = p.round === 2 ? '<span class="sq-price free">FREE PICK</span>' : '<span class="sq-price">' + esc(money(p.price)) + '</span>';
+      return '<div class="sq-row"><span class="sq-num">' + (i + 1) + '</span>' + photo +
+        '<div class="sq-info"><div class="sq-name"><b>' + esc(p.name) + '</b>' + (isNew ? '<span class="sq-new">LATEST</span>' : '') + '</div><small>' + esc(meta) + '</small></div>' + price + '</div>';
+    }).join('');
+    sqBody.innerHTML = html;
+  }
+  /* eslint-enable no-undef */
 
   function fit() {
     var vw = window.innerWidth, vh = window.innerHeight;
@@ -211,6 +356,7 @@
     showWaiting('');
     paint();
     if (events) animate(events, prev, next);
+    try { renderSquads(false); } catch (e) { console.warn('[KFL spectator] squads panel', e); }
   }
 
   function diff(prev, next) {

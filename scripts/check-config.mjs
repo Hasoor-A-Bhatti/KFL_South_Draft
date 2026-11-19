@@ -68,8 +68,12 @@ try {
         if (st === 'SUBSCRIBED' && !subscribed) {
           subscribed = true;
           ok('Subscribed to Realtime');
-          // touch updated_at only (seq unchanged → spectators ignore it)
-          await fetch(`${URL_}/rest/v1/kfl_live?id=eq.${EVENT}`, { method: 'PATCH', headers: hdr(SECRET, { Prefer: 'return=minimal' }), body: JSON.stringify({ updated_at: new Date().toISOString() }) });
+          // Touch updated_at only (seq unchanged → spectators ignore it). Supabase needs a moment
+          // after SUBSCRIBED before change events flow, so wait, then retry a few times.
+          for (const wait of [1500, 2500, 3000]) {
+            await new Promise((r) => setTimeout(r, wait));
+            await fetch(`${URL_}/rest/v1/kfl_live?id=eq.${EVENT}`, { method: 'PATCH', headers: hdr(SECRET, { Prefer: 'return=minimal' }), body: JSON.stringify({ updated_at: new Date().toISOString() }) });
+          }
         } else if (st === 'CHANNEL_ERROR' || st === 'TIMED_OUT') { clearTimeout(timer); resolveP('err:' + st); }
       });
   });

@@ -77,6 +77,7 @@ The key is remembered on that laptop; after a page reload broadcasting resumes a
 
 ## What spectators see
 - The same scene as the projector: live auction, budgets, squads, top signings, statistics, intermission, with SOLD / UNSOLD / FREE PICK / NEW RECORD / SALE REVERSED animations and bid pulses.
+- **👥 Squads button:** a panel any spectator can open at any time without affecting anyone else. It shows all 10 teams (players signed out of 15, budget left), and each team's squad in signing order with photo, position, age, region and the price paid (or **FREE PICK** for Round 2). It updates live while open and tags the latest signing.
 - The view scales to any screen; phones get a "rotate for a bigger view" hint in portrait.
 - Organiser controls, keyboard shortcuts and data editing are not available on the spectator page.
 - **Limitations:**
